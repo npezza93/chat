@@ -1,0 +1,81 @@
+#chat .new_chat
+  height: calc(100% - 48px)
+  display: none
+  flex-direction: column
+  .chat__user-check-boxes
+    margin: 10px 20px 0px 20px
+    display: flex
+    flex-direction: column
+    height: calc(100% - 48px)
+    overflow-y: auto
+    &::-webkit-scrollbar
+      display: none
+  label
+    position: relative
+    margin: 1rem
+    line-height: 135%
+    cursor: pointer
+    font-size: 18px
+    font-family: "Avenir" !important
+    letter-spacing: 1.5px !important
+    &:after
+      content: ''
+      content: "\2022"
+    &.offline
+      &:after
+        color: #EF5350
+    &.online
+      &:after
+        color: #AED581
+
+  input[type='submit']
+    border-top: 1px solid #BDBDBD
+    border-left: none
+    border-bottom: none
+    border-right: none
+    font-family: "Avenir" !important
+    letter-spacing: 1.5px !important
+    font-size: 14px
+    background: transparent
+    width: 100%
+    padding: 10px 0 10px 0
+    cursor: pointer
+    transition: all 0.3s ease
+    z-index: 10
+    &:hover
+      background: #BDBDBD
+
+  input[type='checkbox']
+    position: relative
+    top: -.7rem
+    margin: 0 2rem 0 0
+    cursor: pointer
+    &:before
+      transition: all 0.3s ease-in-out
+      content: ''
+      position: absolute
+      left: 0
+      z-index: 1
+      width: 2rem
+      height: 2rem
+      border: 2px solid #BDBDBD
+    &:checked
+      &:before
+        transform: rotate(-45deg)
+        height: .9rem
+        border-color: #009688
+        border-top-style: none
+        border-right-style: none
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 2rem
+      height: 2rem
+      background: rgba(245, 245, 245, 1)
+      cursor: pointer
+
+#chat .chat__errors
+  text-align: center
+  color: #F44336

@@ -1,0 +1,57 @@
+#chat .current_chat
+  height: calc(100% - 48px)
+  flex-direction: column
+  img.chat__user-avatar
+    width: 50px
+    height: 50px
+    object-fit: cover
+    border-radius: 50%
+  .chat__transcript
+    max-height: calc(100% - 78px)
+    overflow-y: auto
+    &::-webkit-scrollbar
+      display: none
+  .message
+    padding: 10px
+    display: flex
+    flex-direction: row
+    .text
+      padding: 5px
+      flex: 1
+      position: relative
+      img.chat__message-image
+        width: 100%
+        border-radius: 5px
+        margin-bottom: -5px
+      &.right
+        margin-right: 10px
+        border-radius: 5px 0px 5px 5px
+        background: #B2EBF2
+        border: none
+        &:after
+          content: ""
+          position: absolute
+          border-style: solid
+          border-width: 0px 0 13px 15px
+          border-color: transparent #B2EBF2
+          display: block
+          width: 0
+          z-index: 1
+          right: -15px
+          top: 0px
+      &.left
+        margin-left: 10px
+        border-radius: 0px 5px 5px 5px
+        background: #C8E6C9
+        border: none
+        &:after
+          content: ""
+          position: absolute
+          border-style: solid
+          border-width: 0px 15px 13px 0px
+          border-color: transparent #C8E6C9
+          display: block
+          width: 0
+          z-index: 1
+          left: -15px
+          top: 0px

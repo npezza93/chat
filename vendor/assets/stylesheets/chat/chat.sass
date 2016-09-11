@@ -1,0 +1,23 @@
+#chat
+  font-family: "Avenir" !important
+  letter-spacing: 1.5px !important
+  width: 375px
+  height: 100%
+  position: fixed
+  right: 0
+  top: 0
+  opacity: 0
+  background: rgb(245, 245, 245)
+  visibility: hidden
+  transform: scale(0)
+  transform-origin: bottom right
+  transition: transform .3s ease-in-out, opacity .1s linear .15s
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2)
+  @media (max-width: 450px)
+    width: 100%
+  &.active
+    visibility: visible
+    opacity: 1
+    transform: scale(1)
+  .chat__flex
+    flex: 1

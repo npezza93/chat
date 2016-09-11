@@ -1,5 +1,3 @@
-require "conversation/version"
-
-module Conversation
+module Chat
   # Your code goes here...
 end

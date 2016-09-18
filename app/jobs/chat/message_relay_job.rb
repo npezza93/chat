@@ -14,7 +14,7 @@ module Chat
     end
 
     def avatar(user)
-      renderer.chat_avatar(user)
+      renderer.chat_avatar(user).to_s
     end
 
     def content(message)

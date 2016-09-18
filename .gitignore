@@ -9,4 +9,5 @@
 /tmp/
 /test/dummy/tmp/
 /test/dummy/log/
-/test/dummy/db/
+/test/dummy/db/*.sqlite3
+*.gem

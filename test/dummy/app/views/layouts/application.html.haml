@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Dummy
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+  %body
+    - if notice || alert
+      .notice
+        = notice || alert
+    - if signed_in?
+      #signed_in_user
+        #{current_user.email} signed in
+        = link_to 'Settings', edit_users_path
+        = link_to 'Sign out', sign_out_path, method: :delete
+
+    = yield

@@ -1,0 +1,13 @@
+= link_to page_path(:home), class: 'link-back' do
+  = material_icon.arrow_back
+#sign-up
+  %h1 Settings
+  = form_for @user, url: users_path, method: :put do |f|
+    = render 'clearance/users/form', f: f
+    = f.text_field :first_name, placeholder: 'First'
+    %br
+    = f.text_field :last_name, placeholder: 'Last'
+    %br
+    = f.file_field :image, placeholder: 'Image'
+    %br
+    = f.submit

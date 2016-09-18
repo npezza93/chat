@@ -1,0 +1,8 @@
+= link_to sign_in_path, class: 'link-back' do
+  = material_icon.arrow_back
+#sign-up
+  %h1= t('.title')
+  = form_for @user do |f|
+    = render 'clearance/users/form', f: f
+    %br
+    = f.submit 'Sign Up'

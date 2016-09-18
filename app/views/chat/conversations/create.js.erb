@@ -1,0 +1,21 @@
+<% if @conversation.valid? %>
+  $('#chat .chat__list').html("<%= j render 'chat/conversations/index' %>");
+  $('#chat .chat__list').css('display', 'none');
+  $('.new_conversation').replaceWith("<%= j render 'chat/conversations/new' %>");
+  $('.current_chat').html("<%= j render 'chat/conversations/show' %>");
+  $('.current_chat').css('display', 'flex');
+  $('.chat__transcript').scrollTop($('.chat__transcript').prop('scrollHeight'));
+  App.chat_message.followCurrentChat();
+<% elsif @conversation.errors.messages[:sessions].present? %>
+  error_msg =
+    `<div class='chat__errors'>
+      <%= j @conversation.errors.values.flatten.join(', ') %>
+     </div>`;
+  if($('.chat__errors').length == 0) {
+    $('.chat__user-check-boxes').prepend(error_msg);
+  }
+<% else %>
+    <% id = Chat.joins(:chat_users).find_by(chat_users: { user_id: @conversation.user_ids }).id %>
+    $('.new_conversation').replaceWith("<%= j render 'chats/new' %>");
+    $("a[href='/chats/<%= id %>']").click();
+<% end %>

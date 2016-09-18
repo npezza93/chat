@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount Chat::Engine => "/chat", as: "chat"
+
+  root to: 'high_voltage/pages#show', id: 'home'
+
+  resource :users, only: [:edit, :update]
 end

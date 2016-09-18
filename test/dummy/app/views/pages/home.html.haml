@@ -1,0 +1,8 @@
+#homeContainer
+  - if signed_in?
+    %h1 Chat
+  - else
+    = link_to sign_in_path do
+      %h1 Chat
+
+= render_chat

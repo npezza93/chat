@@ -1,0 +1,9 @@
+.chat__transcript{ data: { channel: 'messages', current: { chat: @conversation.id, user: current_user.id }}}
+  = render @conversation.messages
+
+.chat__flex
+= form_for [chat, @conversation, Chat::Message.new], remote: true do |f|
+  = material_icon.insert_photo.css_class("chat__insert-image")
+  = f.text_field :text, placeholder: 'Send message...', autocomplete: 'off'
+  %span.bar
+  = f.file_field :image

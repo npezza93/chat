@@ -1,0 +1,11 @@
+- if chat_list.present?
+  .chat__index
+    - chat_list.each do |conversation|
+      = link_to [chat, conversation], remote: true, id: "chat__show-#{conversation.id}" do
+        = conversation.names.gsub(", #{current_user.name}", '').gsub("#{current_user.name}, ", '')
+  .chat__flex
+- else
+  .chat__none-available
+    = material_icon.chat_bubble_outline
+    %h5 No Chats
+= link_to 'Start a Chat', nil, class: 'chat__start-new'

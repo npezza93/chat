@@ -1,0 +1,17 @@
+.message
+  - if message.image?
+    - if message.user == current_user
+      .text.right= image_tag message.image.url, class: 'chat__message-image'
+      = chat_avatar(message.user)
+    - else
+      = chat_avatar(message.user)
+      .text.left= image_tag message.image.url, class: 'chat__message-image'
+  - else
+    - if message.user == current_user
+      .chat__flex
+      .text.right= message.text
+      = chat_avatar(message.user)
+    - else
+      = chat_avatar(message.user)
+      .text.left= message.text
+      .chat__flex

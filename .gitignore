@@ -11,3 +11,4 @@
 /test/dummy/log/
 /test/dummy/db/*.sqlite3
 *.gem
+/test/dummy/public/system

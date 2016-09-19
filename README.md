@@ -1,6 +1,11 @@
 # Chat
 
 ## Installation
+---
+`WARNING:` This gem relies on ActionCable. An authentication system must be setup before installing 'chat'. The generator will only run unless a users table exists.
+
+---
+
 Add this line to your application's Gemfile:
 
 ```ruby

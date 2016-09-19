@@ -1,8 +1,4 @@
 # Chat
-Short description and motivation.
-
-## Usage
-How to use my plugin.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -16,10 +12,23 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
+Run the installer to setup migrations and helpers:
 ```bash
-$ gem install chat
+$ rails generate chat:install
 ```
+
+After running the installer add the followings lines to your application.js and application.css files:
+
+```javascript
+//= require chat
+```
+
+```css
+/*
+ *= require chat
+ */
+```
+
 
 ## Contributing
 Contribution directions go here.

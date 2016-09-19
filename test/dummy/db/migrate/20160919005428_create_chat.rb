@@ -1,5 +1,5 @@
-class CreateChats < ActiveRecord::Migration[5.0]
-  def change
+class CreateChat < ActiveRecord::Migration[5.0]
+  def self.up
     create_table :chat_conversations do |t|
       t.timestamps
     end
@@ -19,7 +19,11 @@ class CreateChats < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+  end
 
-    add_column :users, :chat_status, :string, default: 'offline'
+  def self.down
+    drop_table :chat_conversations
+    drop_table :chat_sessions
+    drop_table :chat_messages
   end
 end

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  include Clearance::User
   include Chat::User
+  include Clearance::User
 
   has_attached_file :image
   validates_attachment :image, content_type: {

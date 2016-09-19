@@ -8,7 +8,7 @@ module Chat
       include Rails::Generators::Migration
       source_root File.expand_path("../templates", __FILE__)
 
-      desc "Adds chat view helpers to application"
+      desc "Adds view helpers, user methods, and migrations for chat"
 
       def check_user_table
         raise UsersTableNotImplemented unless users_table_exists?

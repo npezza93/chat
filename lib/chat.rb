@@ -13,6 +13,9 @@ module Chat
   # The helper method  used to distinguish if a user is logged in
   mattr_accessor :signed_in
 
+  # The before_action method to validate users are logged in
+  mattr_accessor :logged_in_check
+
   def self.table_name_prefix
     "chat_"
   end

@@ -6,8 +6,8 @@ time that leverages ActionCable.
 
 #### Prerequisites
 1. This gem relies on ActionCable therefore Rails 5.0.0 is a minimum.
-1. For help setting up ActionCable when coming from an old version of Rails, view
-[this](https://www.github.com/npezza93/chat/blob/master/action_cable_setup.md).
+1. For help setting up ActionCable when coming from an older version of Rails, view
+[this](https://github.com/npezza93/chat/wiki/Setting-up-ActionCable).
 1. An authentication system must be setup before installing `chat`, like
 Devise, Clearance, or your own custom solution. The generator will only run
 unless a users table exists.

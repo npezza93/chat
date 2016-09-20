@@ -1,10 +1,10 @@
-require 'test_helper'
-require 'generators/install/install_generator'
+require "test_helper"
+require "generators/install/install_generator"
 
 module Chat
   class InstallGeneratorTest < Rails::Generators::TestCase
     tests InstallGenerator
-    destination Rails.root.join('tmp/generators')
+    destination Rails.root.join("tmp/generators")
     setup :prepare_destination
 
     # test "generator runs without errors" do

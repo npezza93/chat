@@ -1172,3 +1172,4 @@ AllCops:
     - 'test/dummy/Gemfile'
     - 'test/dummy/Gemfile.lock'
     - 'test/dummy/Rakefile'
+    - 'lib/generators/chat/install/templates/create_chat.rb'

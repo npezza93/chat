@@ -14,6 +14,10 @@ module Chat
         raise UsersTableNotImplemented unless users_table_exists?
       end
 
+      def create_chat_initializer
+        copy_file "chat.rb", "config/initializers/chat.rb"
+      end
+
       def add_helper
         file = "app/controllers/application_controller.rb"
         after = "class ApplicationController < ActionController::Base\n"
@@ -33,7 +37,7 @@ module Chat
       def add_chat_status_migration
         migration_template "add_chat_to_users.rb",
                            "db/migrate/add_chat_to_users.rb"
-         migration_template "create_chat.rb", "db/migrate/create_chat.rb"
+        migration_template "create_chat.rb", "db/migrate/create_chat.rb"
       end
 
       def add_chat_route

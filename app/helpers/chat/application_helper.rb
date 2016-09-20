@@ -1,7 +1,7 @@
 module Chat
   module ApplicationHelper
     def render_chat
-      return unless signed_in?
+      return unless send Chat.signed_in
 
       render "chat/chat"
     end

@@ -1,9 +1,9 @@
 module Chat
   module ApplicationHelper
-    def render_chat
+    def render_chat(background = nil, color = nil)
       return unless send Chat.signed_in
 
-      render "chat/chat"
+      render "chat/chat", background: background, color: color
     end
 
     def launch_chat_fab(background = "#4CAF50", color = "light")

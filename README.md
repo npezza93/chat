@@ -49,7 +49,9 @@ Require chat in your app/assets/stylesheets/application.css file
 Finally the following line to your application.html.erb file or any view file
 you'd like Chat available from:
 ```html
-<%= render_chat %>
+<!--  background is the background color of the launch fab -->
+<!--  color is the icon color on the launch fab. Can be light or dark -->
+<%= render_chat(background, color) %>
 ```
 
 ## Contributing

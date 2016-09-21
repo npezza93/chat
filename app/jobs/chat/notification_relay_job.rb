@@ -1,5 +1,7 @@
 module Chat
   class NotificationRelayJob < ApplicationJob
+    queue_as :default
+
     def perform(message)
       (message.conversation.user_ids - [message.user_id]).each do |user_id|
         ActionCable.server.broadcast(

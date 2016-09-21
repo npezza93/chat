@@ -10,7 +10,7 @@ class Chat::Message < ApplicationRecord
   delegate :name, to: :user
 
   after_create_commit do
-    Chat::MessageRelayJob.perform_now(self)
-    Chat::NotificationRelayJob.perform_now(self)
+    Chat::MessageRelayJob.perform_later(self)
+    Chat::NotificationRelayJob.perform_later(self)
   end
 end

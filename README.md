@@ -29,9 +29,10 @@ And then execute:
 ❯ bundle
 ```
 
-Run the installer to setup migrations and helpers:
+Run the installer to setup migrations and helpers and then migrate:
 ```bash
 ❯ rails generate chat:install
+❯ rails db:migrate
 ```
 
 Require chat in your app/assets/javascripts/application.js file:

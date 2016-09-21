@@ -6,6 +6,4 @@ Chat.setup do |config|
   # Clearance => :require_login
   # Devise    => :authenticate_user!
   config.logged_in_check = :require_login
-
-  config.user_avatar = :image
 end

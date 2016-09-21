@@ -21,10 +21,10 @@ module Chat
     end
 
     def chat_avatar(user)
-      if user.image?
-        image_tag(user.image, class: "chat__user-avatar")
+      if user.send(Chat.user_avatar.to_s + "?")
+        image_tag(user.send(Chat.user_avatar), class: "chat__user-avatar")
       else
-        material_icon.person.css_class("chat__user-avatar")
+        MaterialIcon.new.css_class("chat__user-avatar").person
       end
     end
 

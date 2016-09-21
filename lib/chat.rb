@@ -16,6 +16,9 @@ module Chat
   # The before_action method to validate users are logged in
   mattr_accessor :logged_in_check
 
+  # The field that contains the users avatar
+  mattr_accessor :user_avatar
+
   def self.table_name_prefix
     "chat_"
   end

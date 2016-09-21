@@ -1,4 +1,4 @@
-class AddClearanceToUsers < ActiveRecord::Migration[5.0]
+class AddChatToUsers < ActiveRecord::Migration[5.0]
   def self.up
     add_column :users, :chat_status, :string, default: "offline"
   end

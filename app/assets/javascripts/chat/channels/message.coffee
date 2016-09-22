@@ -32,10 +32,22 @@ App.chat_message =
       element.classList += 'chat__flex'
       element.outerHTML
 
-    message_container: ->
+    text_message_container: ->
       element = @div()
-      element.classList += 'message'
+      element.classList += 'chat__message'
       element
+
+    image_message_container: ->
+      element = @div()
+      element.classList += 'chat__image-message'
+      element
+
+    image_message: (data) ->
+      element = @image_message_container()
+      if data.user == @current_user()
+        element.classList += ' current'
+      element.innerHTML = data.message
+      element.outerHTML
 
     message: (data) ->
       element = @div()
@@ -47,19 +59,18 @@ App.chat_message =
       element.innerHTML = data.message
       element.outerHTML
 
-    setup_element_array: (data) ->
-      if data.image
-        [data.avatar, @message(data)]
-      else
-        [data.avatar, @message(data), @flex()]
+    text_message: (data) ->
+      msg = [data.avatar, @message(data), @flex()]
+      msg = msg.reverse() if data.user == @current_user()
+
+      message = @text_message_container()
+      message.innerHTML = msg.join('')
+      message.outerHTML
+
 
     generateMessage: (data) ->
       $('#message_text').prop('value', '')
-      if data.user == @current_user()
-        inner_message = @setup_element_array(data).reverse().join('')
+      if data.image
+        @image_message(data)
       else
-        inner_message = @setup_element_array(data).join('')
-
-      message = @message_container()
-      message.innerHTML = inner_message
-      message.outerHTML
+        @text_message(data)

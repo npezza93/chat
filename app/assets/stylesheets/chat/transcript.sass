@@ -13,7 +13,16 @@
     overflow-y: auto
     &::-webkit-scrollbar
       display: none
-  .message
+  .chat__image-message
+    width: 100%
+    padding-top: 10px
+    padding-bottom: 10px
+    img
+      width: 100%
+      border-bottom: 4px solid #C8E6C9
+    &.current img
+      border-bottom: 4px solid #B2EBF2
+  .chat__message
     padding: 10px
     display: flex
     flex-direction: row
@@ -21,10 +30,6 @@
       padding: 5px
       flex: 1
       position: relative
-      img.chat__message-image
-        width: 100%
-        border-radius: 5px
-        margin-bottom: -5px
       &.right
         margin-right: 10px
         border-radius: 5px 0px 5px 5px

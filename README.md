@@ -55,6 +55,8 @@ you'd like Chat available from:
 <%= render_chat(background, color) %>
 ```
 
+### Dot Commands
+
 ## Contributing
 Contribution directions go here.
 

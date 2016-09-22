@@ -8,9 +8,22 @@ class Chat::Message < ApplicationRecord
   belongs_to :conversation
 
   delegate :name, to: :user
+  before_save :execute_dot_command
 
   after_create_commit do
-    Chat::MessageRelayJob.perform_later(self)
-    Chat::NotificationRelayJob.perform_later(self)
+    Chat::MessageRelayJob.perform_now(self)
+    Chat::NotificationRelayJob.perform_now(self)
+  end
+
+  private
+
+  def execute_dot_command
+    return unless dot_command.valid?
+
+    dot_command.perform
+  end
+
+  def dot_command
+    @dot_command ||= Chat::DotCommand.new(self, text)
   end
 end

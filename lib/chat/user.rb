@@ -40,7 +40,7 @@ module Chat
     private
 
     def broadcast_status
-      Chat::StatusRelayJob.perform_later(self)
+      Chat::StatusRelayJob.perform_now(self)
     end
   end
 end

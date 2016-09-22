@@ -9,7 +9,7 @@ module Chat
       has_many :conversations, through: :sessions,
                                class_name: "::Chat::Conversation"
 
-      validates :chat_status, inclusion: { in: %w(online offline away) }
+      validates :chat_status, inclusion: { in: %w(online offline) }
 
       after_commit :broadcast_status,
                    if: proc { |u| u.previous_changes.key?(:chat_status) }

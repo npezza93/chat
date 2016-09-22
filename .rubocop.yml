@@ -1173,3 +1173,4 @@ AllCops:
     - 'test/dummy/Gemfile.lock'
     - 'test/dummy/Rakefile'
     - 'lib/generators/chat/install/templates/create_chat.rb'
+  TargetRubyVersion: 2.3

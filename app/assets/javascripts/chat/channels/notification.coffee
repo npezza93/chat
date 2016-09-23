@@ -15,7 +15,7 @@ App.chat_notification =
         $(".chat__launch").data().currentUser
 
     current_chat: ->
-      App.messages.current_chat()
+      App.chat_message.current_chat()
 
     viewing_transcript: ->
       $(".current_chat").css("display") == "flex"

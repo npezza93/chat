@@ -4,7 +4,7 @@ module Chat
 
     def perform(user)
       ActionCable.server.broadcast(
-        "chat::statuses", user_id: user.id, status: user.chat_status
+        "chat::status", user_id: user.id, status: user.chat_status
       )
     end
   end

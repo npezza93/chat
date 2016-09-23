@@ -27,6 +27,11 @@ module Chat
       update(chat_status: "offline")
     end
 
+    def leave_conversation(conversation)
+      session = sessions.where(conversation: conversation)
+      session.destroy
+    end
+
     module ClassMethods
       def first_name
         "first_name"

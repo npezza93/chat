@@ -12,7 +12,7 @@ module Chat
       end
 
       def commands
-        %w(.gif .shrug)
+        %w(.gif .shrug .leave)
       end
 
       def custom_commands

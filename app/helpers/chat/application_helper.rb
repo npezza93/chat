@@ -20,6 +20,17 @@ module Chat
       @chatable_users ||= ::User.where.not(id: current_user.id)
     end
 
+    def chatable_user_check_boxes(f)
+      f.collection_check_boxes(:user_ids, chatable_users, :id, :name) do |b|
+        b.check_box + b.label(class: b.object.chat_status) do
+          content_tag(
+            :div, b.text,
+            class: "chat__status #{b.object.chat_status}"
+          )
+        end
+      end
+    end
+
     def chat_avatar(user)
       if user.send(Chat.user_avatar.to_s + "?")
         image_tag(user.send(Chat.user_avatar), class: "chat__user-avatar")

@@ -7,6 +7,7 @@ App.chat_status =
       @perform 'unsubscribed', user_id: App.chat_notification.current_user()
 
     received: (data) ->
-      label = $("label[for='conversation_user_ids_#{data.user_id}']")
-      label.removeClass()
+      label = $("label[for='conversation_user_ids_#{data.user_id}'] .chat__status")
+      label.removeClass("offline")
+      label.removeClass("online")
       label.addClass(data.status)

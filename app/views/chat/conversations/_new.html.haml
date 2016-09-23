@@ -1,8 +1,7 @@
 = form_for [chat, Chat::Conversation.new], remote: true do |f|
   - if chatable_users.present?
     .chat__user-check-boxes
-      = f.collection_check_boxes(:user_ids, chatable_users, :id, :name) do |b|
-        = b.label(class: b.object.chat_status) { b.check_box + b.text }
+      = chatable_user_check_boxes(f)
     .chat__flex
     = f.submit 'Start Chatting'
   - else

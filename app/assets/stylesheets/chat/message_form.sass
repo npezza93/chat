@@ -4,18 +4,19 @@
   margin: 0px 40px 36px 40px
   flex-direction: column
   display: flex
+  position: relative
   .chat__insert-image
     position: absolute
-    right: 52px
-    bottom: 40px
+    right: 28px
+    top: 4px
     color: #bdbdbd
     transition: all 0.3s ease
     z-index: 10
     cursor: pointer
+    font-size: 22px
     &:hover
       color: #212121
-
-  input[type='text']
+  input[type='text'], textarea
     font-size: 17px
     font-family: "Lato" !important
     letter-spacing: 1.5px !important
@@ -25,7 +26,8 @@
     border-bottom: 1px solid rgba(0,0,0,.26)
     height: 28px
     outline: none
-  .bar
+    resize: none
+  .bar, .emojionearea-bar
     position: relative
     &:before, &:after
       content: ''
@@ -41,7 +43,8 @@
       left: 50%
     &:after
       right: 50%
-  input[type='text']:focus ~ .bar:before, input[type='text']:focus ~ .bar:after
+  input[type='text']:focus ~ .bar:before, input[type='text']:focus ~ .bar:after,
+  textarea:focus ~ .bar:before, textarea:focus ~ .bar:after, .emojionearea-editor:focus ~ .emojionearea-bar:before, .emojionearea-editor:focus ~ .emojionearea-bar:after
     width: 50%
   input[type='file']
     display: none !important

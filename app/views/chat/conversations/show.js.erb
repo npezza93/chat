@@ -1,4 +1,5 @@
 $('.current_chat').html("<%= j render 'chat/conversations/show' %>");
+$('.new_message textarea').emojioneArea()
 $('.chat__list').css('display', 'none');
 $('.new_conversation').css('display', 'none');
 $('.current_chat').css('display', 'flex');

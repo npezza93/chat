@@ -5,9 +5,9 @@
   .chat__message
     - if message.user == current_user
       .chat__flex
-      .text.right= message.text
+      .text.right= raw(message.text)
       = chat_avatar(message.user)
     - else
       = chat_avatar(message.user)
-      .text.left= message.text
+      .text.left= raw(message.text)
       .chat__flex

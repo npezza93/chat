@@ -69,7 +69,6 @@ App.chat_message =
 
 
     generateMessage: (data) ->
-      $('#message_text').prop('value', '')
       if data.image
         @image_message(data)
       else

@@ -9,6 +9,7 @@ require "jquery-rails"
 require "composite_primary_keys"
 require "jquery-fileupload-rails"
 require "giphy"
+require "sidekiq"
 
 module Chat
   # The helper method  used to distinguish if a user is logged in

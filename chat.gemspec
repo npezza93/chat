@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.add_dependency "coffee-rails", "~> 4.2"
   s.add_dependency "jquery-rails"
   s.add_dependency "giphy"
+  s.add_dependency "sidekiq"
 
   s.name          = "chat"
   s.version       = Chat::VERSION
@@ -33,5 +34,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rubocop"
   s.add_development_dependency "turbolinks", "~> 5"
-  s.add_development_dependency "sidekiq"
 end

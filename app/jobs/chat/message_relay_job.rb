@@ -1,8 +1,7 @@
 module Chat
   class MessageRelayJob < ApplicationJob
-    queue_as :default
-
-    def perform(message)
+    def perform(message_id)
+      message = Chat::Message.find(message_id)
       ActionCable.server.broadcast(
         "chats::#{message.conversation_id}::messages", render_message(message)
       )

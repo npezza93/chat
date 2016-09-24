@@ -11,8 +11,8 @@ class Chat::Message < ApplicationRecord
   before_save :execute_dot_command
 
   after_create_commit do
-    Chat::MessageRelayJob.perform_now(self)
-    Chat::NotificationRelayJob.perform_now(self)
+    Chat::MessageRelayJob.perform_later(id)
+    Chat::NotificationRelayJob.perform_later(self)
   end
 
   private

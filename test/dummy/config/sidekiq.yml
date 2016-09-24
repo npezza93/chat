@@ -1,0 +1,8 @@
+---
+:concurrency: 25
+development:
+  :concurrency: 2
+staging:
+  :concurrency: 10
+:queues:
+  - default

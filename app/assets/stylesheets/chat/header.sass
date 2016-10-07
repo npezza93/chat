@@ -3,25 +3,50 @@
 #chat .chat__header
   font-family: 'Lato' !important
   letter-spacing: 1.5px !important
-  height: 48px
-  background-color: #fff
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2)
+  height: 50px
+  background-color: #7EE48E
   display: flex
   flex-direction: row
-  align-items: center
+  align-items: flex-end
+
+  .chat__settings
+    width: 20px
+    height: 20px
+    margin: 0 25px
+    cursor: pointer
+    div
+      height: 2px
+      background: #fff
+      border-radius: 2px
+    div:nth-of-type(1)
+      width: 94%
+      margin-bottom: 4px
+      margin-top: 5px
+    div:nth-of-type(2)
+      width: 57%
+
   h6
     font-family: 'Lato' !important
     letter-spacing: 1.5px !important
     margin: 0
-    font-weight: 300
     font-size: 19px
+    color: #fff
+    font-weight: 700
   i
-    margin: 0 10px 0 10px
-    color: #BDBDBD
+    margin: 0 25px
+    color: #fff
     transition: all .3s ease
     cursor: pointer
     &:hover
-      color: #212121
+      color: #eee
+#chat .chat__header-panes
+  font-family: 'Lato' !important
+  letter-spacing: 1.5px !important
+  height: 50px
+  background-color: #7EE48E
+  display: flex
+  flex-direction: row
+  align-items: center
 
 #chat .chat__badge
   position: relative

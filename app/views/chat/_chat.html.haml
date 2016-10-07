@@ -2,12 +2,14 @@
 
 #chat
   .chat__header
-    = material_icon.menu.css_class('chat__settings')
+    .chat__settings
+      %div
+      %div
     .chat__flex
     %h6 Chat
     .chat__flex
     = material_icon.close.css_class('chat__close')
-
+  .chat__header-panes
   = render 'chat/conversations/new'
   .chat__list
     = render 'chat/conversations/index'

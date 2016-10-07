@@ -1,12 +1,12 @@
 module Chat
   module ApplicationHelper
-    def render_chat(background = nil, color = nil)
+    def render_chat(background = "#7EE48E", color = "light")
       return unless send Chat.signed_in
 
       render "chat/chat", background: background, color: color
     end
 
-    def launch_chat_fab(background = "#4CAF50", color = "light")
+    def launch_chat_fab(background = "#7EE48E", color = "light")
       attrs = {
         class: "chat__launch", style: "background: #{background}",
         data: { "current-user" => current_user.id }
@@ -40,22 +40,22 @@ module Chat
     end
 
     def chat_list
-      @chat_list ||=
-        Chat::Conversation.joins(:users)
-                          .group("chat_sessions.conversation_id")
-                          .select(:id, group_concat)
-                          .merge(current_user.conversations)
-                          .order(created_at: :desc)
+      @chat_list ||= current_user.conversations.includes(:users).order(
+        "chat_conversations.created_at desc"
+      )
     end
 
-    private
+    def chat_avatars(conversation)
+      (conversation.users - [current_user]).first(5).collect do |u|
+        image_tag u.image.url
+      end.join("").html_safe
+    end
 
-    def group_concat
-      if ActiveRecord::Base.connection.adapter_name == "SQLite"
-        "GROUP_CONCAT(users.#{::User.first_name} || ' ' || users.#{::User.last_name}, ', ') as names"
-      elsif ActiveRecord::Base.connection.adapter_name == "MySQL"
-        "GROUP_CONCAT(CONCAT(\"users.#{User.first_name}\",\" \", \"users.#{User.last_name}\") "\
-        "SEPARATOR ', ') as names"
+    def chat_avatar_count(conversation)
+      if (count = conversation.users.to_a.size - 1) <= 5
+        "count_#{count}"
+      else
+        "count_default"
       end
     end
   end

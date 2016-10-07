@@ -2,7 +2,6 @@ $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 require "chat/version"
 
-# Description of Chat and its dependencies:
 Gem::Specification.new do |s|
   s.add_dependency "material_icons"
   s.add_dependency "paperclip", "~> 5.1.0"
@@ -28,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "haml"
   s.add_development_dependency "pry-rails"
   s.add_development_dependency "clearance"
-  s.add_development_dependency "high_voltage"
   s.add_development_dependency "faker"
   s.add_development_dependency "puma"
   s.add_development_dependency "sqlite3"

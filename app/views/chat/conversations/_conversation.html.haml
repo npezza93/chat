@@ -1,15 +1,17 @@
 = link_to [chat, conversation], remote: true, id: "chat__show-#{conversation.id}" do
   .avatar_container{ class: chat_avatar_count(conversation) }
     = chat_avatars(conversation)
-  .chat__glance-name-date
-    .name
-      - if (count = conversation.users.to_a.size) > 2
-        Group Chat(#{count})
-      - else
-        = conversation.users.where.not(id: current_user.id).first.first_name
-    .flex
-    .date
-      - if conversation.last_message.present?
-        = time_ago_in_words conversation.last_message&.created_at
-        ago
-  = raw conversation.last_message&.text
+  .chat__glance
+    .chat__glance-name-date
+      .name
+        - if conversation.users.to_a.size > 2
+          Group Chat
+        - else
+          = conversation.users.where.not(id: current_user.id).first.first_name
+      .flex
+      .date
+        - if conversation.last_message.present?
+          = time_ago_in_words conversation.last_message&.created_at
+          ago
+    .chat__glance-last-message
+      = raw conversation.last_message&.text

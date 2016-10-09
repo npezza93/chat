@@ -16,8 +16,6 @@
     text-decoration: none
     color: #212121
     display: flex
-    &:hover
-      background: #BDBDBD
   .chat__index
     // display: flex
     // flex-direction: column
@@ -36,23 +34,33 @@
       transition: 1s
   .chat__has_new_message
     animation: pulse 1s ease-out infinite
-  .chat__glance-name-date
+  .chat__glance
     display: flex
-    flex-direction: row
+    flex-direction: column
     flex: 1
-    border-bottom: 1px solid #ededed
-    margin-left: 15px
-    .flex
+    .chat__glance-name-date
+      display: flex
+      flex-direction: row
       flex: 1
-    .name
-      font-size: 15px
-      font-weight: 700
-      padding: 10px 0
-    .date
-      font-weight: 700
-      font-size: 11px
-      padding-top: 13px
-      color: #bdbdbd
+      // border-bottom: 1px solid #ededed
+      margin-left: 15px
+      margin-top: 15px
+      .flex
+        flex: 1
+      .name
+        font-size: 15px
+        font-weight: 700
+      .date
+        font-weight: 700
+        font-size: 11px
+        padding-top: 3px
+        color: #bdbdbd
+    .chat__glance-last-message
+      margin-left: 15px
+      text-align: left
+      margin-top: 7px
+      font-size: 13px
+      color: #757575
 #chat .chat__none-available
   height: 100%
   display: flex

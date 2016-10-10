@@ -9,6 +9,7 @@ class Chat::Message < ApplicationRecord
 
   delegate :name, to: :user
   before_save :execute_dot_command
+  before_save :remove_extra_new_line
 
   after_create_commit do
     Chat::MessageRelayJob.perform_later(id)
@@ -25,5 +26,9 @@ class Chat::Message < ApplicationRecord
 
   def dot_command
     @dot_command ||= Chat::DotCommand.new(self, text)
+  end
+
+  def remove_extra_new_line
+    self.text = text[0..-16]
   end
 end

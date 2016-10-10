@@ -1,13 +1,21 @@
-- if message.image?
-  .chat__image-message{ class: "#{'current' if message.user == current_user}" }
+-# - if message.image?
+-#   .chat__image-message{ class: "#{'current' if message.user == current_user}" }
+-#     = image_tag message.image.url
+-# - else
+-#   .chat__message
+-#     - if message.user == current_user
+-#       = chat_avatar(message.user)
+-#       .text.right= raw(message.text)
+-#     - else
+-#       = chat_avatar(message.user)
+-#       .text.left= raw(message.text)
+-# %div{ class: message.user == current_user ? "right" : "left" }
+- unless message.user == previous&.user
+  .transcript_avatar{ class: message.user == current_user ? "right" : "left" }
+    = chat_avatar(message.user)
+.message{ class: message_classes(message) }
+  - if message.image?
     = image_tag message.image.url
-- else
-  .chat__message
-    - if message.user == current_user
-      .chat__flex
-      .text.right= raw(message.text)
-      = chat_avatar(message.user)
-    - else
-      = chat_avatar(message.user)
-      .text.left= raw(message.text)
-      .chat__flex
+  - else
+    .content
+      = raw(message.text)

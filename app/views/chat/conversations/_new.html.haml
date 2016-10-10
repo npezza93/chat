@@ -1,8 +1,6 @@
 = form_for [chat, Chat::Conversation.new], remote: true do |f|
   - if chatable_users.present?
-    .chat__user-check-boxes
-      = chatable_user_check_boxes(f)
-    .chat__flex
+    = chatable_user_check_boxes(f)
     = f.submit 'Start Chatting'
   - else
     .chat__none-available

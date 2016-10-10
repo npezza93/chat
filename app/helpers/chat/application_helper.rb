@@ -58,5 +58,11 @@ module Chat
         "count_default"
       end
     end
+
+    def message_classes(message)
+      css_class = message.user == current_user ? "right" : "left"
+      css_class += message.image? ? " image" : ""
+      css_class
+    end
   end
 end

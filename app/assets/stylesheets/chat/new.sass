@@ -1,26 +1,23 @@
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
 
 #chat .new_conversation
-  height: calc(100% - 48px)
-  display: none
-  flex-direction: column
-  .chat__user-check-boxes
-    margin: 10px 20px 0px 20px
-    display: flex
-    flex-direction: column
-    height: calc(100% - 48px)
-    overflow-y: auto
-    &::-webkit-scrollbar
-      display: none
+  height: calc(100% - 100px)
+  margin: 0px 20px
+  overflow: auto
+  position: absolute
+  right: 375px
+  transition: 0.5s
+  width: 345px
+  &::-webkit-scrollbar
+    display: none
   label
     position: relative
     margin: 1rem
-    line-height: 135%
     cursor: pointer
-    font-size: 18px
     font-family: "Lato" !important
     letter-spacing: 1.5px !important
     padding-left: 40px
+    width: 100%
   .chat__status
     &:after
       content: "\2022"

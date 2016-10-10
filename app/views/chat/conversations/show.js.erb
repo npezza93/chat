@@ -1,12 +1,12 @@
 $('.current_chat').html("<%= j render 'chat/conversations/show' %>");
-$('.new_message textarea').emojioneArea()
-$('.chat__list').css('display', 'none');
-$('.new_conversation').css('display', 'none');
-$('.current_chat').css('display', 'flex');
+$('.new_message textarea').emojioneArea();
 App.chat_message.followCurrentChat();
 $("#new_message").fileupload();
 if($("#chat__show-<%= @conversation.id %>").hasClass('chat__has_new_message')) {
   App.chat_notification.decrement();
   $("#chat__show-<%= @conversation.id %>").removeClass('chat__has_new_message')
 }
+$('.current_chat').toggleClass("slide_left");
+$('.chat__list').toggleClass("slide_left");
+$('.chat__start-new').toggleClass("disappear");
 $('.chat__transcript').scrollTop($('.chat__transcript').prop('scrollHeight'));

@@ -1,32 +1,53 @@
 #chat .current_chat
-  height: calc(100% - 48px)
+  display: flex
   flex-direction: column
+  overflow: auto
+  position: absolute
+  width: 100%
+  height: calc(100% - 100px)
+  left: 375px
+  opacity: 1
+  transition: 0.5s
+  background: #F7F8FC
   img.chat__user-avatar
-    width: 50px
-    height: 50px
+    width: 35px
+    height: 35px
     object-fit: cover
     border-radius: 50%
   i.chat__user-avatar
     font-size: 50px
   .chat__transcript
-    max-height: calc(100% - 78px)
-    overflow-y: auto
+    margin-left: 25px
+    margin-right: 25px
     &::-webkit-scrollbar
       display: none
-  .chat__image-message
-    width: 100%
-    padding-top: 10px
-    padding-bottom: 10px
-    img
-      width: 100%
-      border-bottom: 4px solid #C8E6C9
-    &.current img
-      border-bottom: 4px solid #B2EBF2
-  .chat__message
-    padding: 10px
-    display: flex
-    flex-direction: row
-    img
+    .left
+      text-align: left
+      margin-top: 10px
+    .right
+      text-align: right
+      margin-top: 10px
+    .message.left
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      .content
+        background: #454950
+        padding: 14px
+        border-radius: 16px
+        border-top-left-radius: 0
+        color: #fff
+    .message.right
+      display: flex
+      flex-direction: row
+      justify-content: flex-end
+      .content
+        background: #fff
+        padding: 14px
+        border-radius: 16px
+        border-top-right-radius: 0
+        color: #454950
+    .content img
       font-size: inherit
       height: 2ex
       width: 2.1ex
@@ -38,39 +59,7 @@
       vertical-align: middle
       max-width: 100%
       top: 0
-    .text
-      padding: 5px
-      flex: 1
-      position: relative
-      &.right
-        margin-right: 10px
-        border-radius: 5px 0px 5px 5px
-        background: #B2EBF2
-        border: none
-        &:after
-          content: ""
-          position: absolute
-          border-style: solid
-          border-width: 0px 0 13px 15px
-          border-color: transparent #B2EBF2
-          display: block
-          width: 0
-          z-index: 1
-          right: -15px
-          top: 0px
-      &.left
-        margin-left: 10px
-        border-radius: 0px 5px 5px 5px
-        background: #C8E6C9
-        border: none
-        &:after
-          content: ""
-          position: absolute
-          border-style: solid
-          border-width: 0px 15px 13px 0px
-          border-color: transparent #C8E6C9
-          display: block
-          width: 0
-          z-index: 1
-          left: -15px
-          top: 0px
+    .message.image
+      display: block !important
+      img
+        max-width: 70%

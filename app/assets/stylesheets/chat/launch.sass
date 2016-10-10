@@ -28,7 +28,7 @@
 
 .chat__start-new
   position: fixed
-  right: 15px
+  left: 310px
   bottom: 15px
   border-radius: 50%
   height: 50px
@@ -45,10 +45,14 @@
   outline: none
   cursor: pointer
   text-decoration: none
+  transition: 0.5s
+  transform: scale(1)
+  &.disappear
+    transform: scale(0)
   i
-    position: fixed
-    right: 28px
-    bottom: 28px
+    position: absolute
+    left: 12px
+    top: 12px
     font-size: 25px
   &:active
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2)

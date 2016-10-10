@@ -13,4 +13,6 @@
   = render 'chat/conversations/new'
   .chat__list
     = render 'chat/conversations/index'
+  = link_to nil, class: 'chat__start-new', style: "background: #7EE48E;" do
+    = material_icon.add.css_class("md-light")
   .current_chat

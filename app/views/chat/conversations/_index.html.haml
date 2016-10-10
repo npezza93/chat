@@ -1,11 +1,6 @@
 - if chat_list.present?
-  .chat__index
-    = render chat_list
-  .chat__flex
+  = render chat_list
 - else
   .chat__none-available
     = material_icon.chat_bubble_outline
     %h5 No Chats
-
-= button_to nil, class: 'chat__start-new', style: "background: #7EE48E;" do
-  = material_icon.add.css_class("md-light")

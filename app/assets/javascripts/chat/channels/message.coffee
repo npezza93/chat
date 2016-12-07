@@ -7,8 +7,8 @@ App.chat_message =
 
     received: (data) ->
       @collection().append @generateMessage(data)
-      height = $('.chat__transcript').prop('scrollHeight')
-      $('.chat__transcript').animate { scrollTop: height }, 'slow'
+      height = $('.current_chat').prop('scrollHeight')
+      $('.current_chat').animate { scrollTop: height }, 'slow'
 
     followCurrentChat: ->
       if chatId = @current_chat()
@@ -24,52 +24,37 @@ App.chat_message =
       if @collection().length > 0
         @collection().data().currentChat
 
-    div: ->
-      document.createElement('div')
-
-    flex: ->
-      element = @div()
-      element.classList += 'chat__flex'
-      element.outerHTML
-
-    text_message_container: ->
-      element = @div()
-      element.classList += 'chat__message'
+    div: (classes = "")->
+      element = document.createElement('div')
+      element.classList += classes if classes.length > 0
       element
 
-    image_message_container: ->
-      element = @div()
-      element.classList += 'chat__image-message'
-      element
+    render_container: (user) ->
+      @div("message-container #{if user == @current_user() then 'right' else ''}")
 
-    image_message: (data) ->
-      element = @image_message_container()
-      if data.user == @current_user()
-        element.classList += ' current'
-      element.innerHTML = data.message
-      element.outerHTML
+    render_avatar: (data) ->
+      last_message_classes = @collection().children().last()[0].classList
 
-    message: (data) ->
-      element = @div()
-      element.classList += 'text'
-      if data.user == @current_user()
-        element.classList += ' right'
+      if data.user == @current_user() &&
+          $.inArray("right", last_message_classes) >= 0
+        @div("transcript_placeholder_avatar").outerHTML
       else
-        element.classList += ' left'
-      element.innerHTML = data.message
-      element.outerHTML
+        data.avatar
 
-    text_message: (data) ->
-      msg = [data.avatar, @message(data), @flex()]
-      msg = msg.reverse() if data.user == @current_user()
+    render_content: (data) ->
+      el = @div("message #{if data.image then 'image' else ''}")
+      if data.image
+        el.innerHTML = data.message
+      else
+        content = @div("content")
+        content.innerHTML = data.message
+        el.innerHTML = content.outerHTML
 
-      message = @text_message_container()
-      message.innerHTML = msg.join('')
-      message.outerHTML
-
+      el
 
     generateMessage: (data) ->
-      if data.image
-        @image_message(data)
-      else
-        @text_message(data)
+      container = @render_container(data.user)
+      container.innerHTML =
+        @render_avatar(data) + @render_content(data).outerHTML
+
+      container

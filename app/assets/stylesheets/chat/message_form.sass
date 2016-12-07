@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
 
 #chat .new_message
-  margin: 0px 20px
+  margin: 0px 20px 25px 20px
   flex-direction: column
   display: flex
   position: relative
@@ -15,7 +15,7 @@
     cursor: pointer
     font-size: 22px
     &:hover
-      color: #212121
+      color: #fff
   input[type='text'], textarea
     font-size: 17px
     font-family: "Lato" !important
@@ -35,7 +35,7 @@
       width: 0
       bottom: 0px
       position: absolute
-      background: #3f51b5
+      background: #fff
       transition: 0.2s ease all
       -moz-transition: 0.2s ease all
       -webkit-transition: 0.2s ease all
@@ -48,3 +48,6 @@
     width: 50%
   input[type='file']
     display: none !important
+  .emojionearea .emojionearea-editor
+    border-bottom: 1px solid #bdbdbd !important
+    color: #fff !important

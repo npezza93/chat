@@ -1,6 +1,8 @@
 = launch_chat_fab(background, color)
 
 #chat
+  #chat__blur_filter
+  #chat__background_filter
   .chat__header
     .chat__settings
       %div
@@ -9,10 +11,9 @@
     %h6 Chat
     .chat__flex
     = material_icon.close.css_class('chat__close')
-  .chat__header-panes
   = render 'chat/conversations/new'
   .chat__list
     = render 'chat/conversations/index'
-  = link_to nil, class: 'chat__start-new', style: "background: #7EE48E;" do
-    = material_icon.add.css_class("md-light")
+  = link_to nil, class: 'chat__start-new' do
+    = material_icon.add
   .current_chat

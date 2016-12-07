@@ -4,62 +4,68 @@
   overflow: auto
   position: absolute
   width: 100%
-  height: calc(100% - 100px)
+  height: calc(100% - 50px)
   left: 375px
   opacity: 1
   transition: 0.5s
-  background: #F7F8FC
+  z-index: 11
+  &::-webkit-scrollbar
+    display: none
   img.chat__user-avatar
-    width: 35px
-    height: 35px
+    width: 50px
+    height: 50px
     object-fit: cover
     border-radius: 50%
+  .transcript_placeholder_avatar
+    width: 50px
+    height: 50px
   i.chat__user-avatar
     font-size: 50px
   .chat__transcript
     margin-left: 25px
     margin-right: 25px
-    &::-webkit-scrollbar
-      display: none
-    .left
-      text-align: left
-      margin-top: 10px
-    .right
-      text-align: right
-      margin-top: 10px
-    .message.left
+    .message-container
       display: flex
       flex-direction: row
-      justify-content: flex-start
-      .content
-        background: #454950
-        padding: 14px
-        border-radius: 16px
-        border-top-left-radius: 0
-        color: #fff
-    .message.right
-      display: flex
-      flex-direction: row
-      justify-content: flex-end
-      .content
-        background: #fff
-        padding: 14px
-        border-radius: 16px
-        border-top-right-radius: 0
-        color: #454950
-    .content img
-      font-size: inherit
-      height: 2ex
-      width: 2.1ex
-      min-height: 20px
-      min-width: 20px
-      display: inline-block
-      margin: -.2ex .15em .2ex
-      line-height: normal
-      vertical-align: middle
-      max-width: 100%
-      top: 0
-    .message.image
-      display: block !important
-      img
-        max-width: 70%
+      &.right
+        text-align: right
+        flex-direction: row-reverse
+        .message
+          flex-direction: row-reverse
+          .content
+            border-top-right-radius: 0 !important
+            border-top-left-radius: 10px !important
+          &.image img
+            border-top-right-radius: 0 !important
+            border-top-left-radius: 10px !important
+      .message
+        min-height: 50px
+        display: flex
+        margin: 0 10px 5px 10px
+        flex: 1
+        flex-direction: row
+        max-width: 100%
+        &.image
+          display: block
+          img
+            width: 100%
+            border-radius: 10px
+            border-top-left-radius: 0
+        .content
+          background: #fff
+          padding: 10px
+          border-radius: 10px
+          color: #212121
+          border-top-left-radius: 0
+          img
+            font-size: inherit
+            height: 2ex
+            width: 2.1ex
+            min-height: 20px
+            min-width: 20px
+            display: inline-block
+            margin: -.2ex .15em .2ex
+            line-height: normal
+            vertical-align: middle
+            max-width: 100%
+            top: 0

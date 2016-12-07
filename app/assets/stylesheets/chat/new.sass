@@ -1,13 +1,14 @@
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
 
 #chat .new_conversation
-  height: calc(100% - 100px)
+  height: calc(100% - 50px)
   margin: 0px 20px
   overflow: auto
   position: absolute
   right: 375px
   transition: 0.5s
   width: 345px
+  z-index: 11
   &::-webkit-scrollbar
     display: none
   label
@@ -18,18 +19,19 @@
     letter-spacing: 1.5px !important
     padding-left: 40px
     width: 100%
+    color: #fff
   .chat__status
     &:after
       content: "\2022"
     &.offline
       &:after
-        color: #EF5350
+        color: hsl(355, 65%, 65%)
     &.online
       &:after
         color: #AED581
 
   input[type='submit']
-    border-top: 1px solid #BDBDBD
+    border-top: none
     border-left: none
     border-bottom: none
     border-right: none
@@ -42,8 +44,8 @@
     cursor: pointer
     transition: all 0.3s ease
     z-index: 10
-    &:hover
-      background: #BDBDBD
+    color: #fff
+    margin-bottom: 10px
 
 #chat .chat__errors
   text-align: center

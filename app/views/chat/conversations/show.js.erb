@@ -9,4 +9,4 @@ if($("#chat__show-<%= @conversation.id %>").hasClass('chat__has_new_message')) {
 $('.current_chat').toggleClass("slide_left");
 $('.chat__list').toggleClass("slide_left");
 $('.chat__start-new').toggleClass("disappear");
-$('.chat__transcript').scrollTop($('.chat__transcript').prop('scrollHeight'));
+$('.current_chat').scrollTop($('.current_chat').prop('scrollHeight'));

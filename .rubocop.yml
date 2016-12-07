@@ -830,7 +830,7 @@ Style/ParallelAssignment:
                   matches on both sides of the assignment.
                   This also provides performance benefits
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#parallel-assignment'
-  Enabled: false
+  Enabled: true
 
 Style/ParenthesesAroundCondition:
   Description: >-
@@ -1151,6 +1151,9 @@ Style/MutableConstant:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 
 Style/WordArray:
   Description: 'Use %w or %W for arrays of words.'

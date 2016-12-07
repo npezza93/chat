@@ -12,8 +12,8 @@ class Chat::Message < ApplicationRecord
   before_save :remove_extra_new_line
 
   after_create_commit do
-    Chat::MessageRelayJob.perform_later(id)
-    Chat::NotificationRelayJob.perform_later(self)
+    Chat::MessageRelayJob.perform_now(id)
+    Chat::NotificationRelayJob.perform_now(self)
   end
 
   private

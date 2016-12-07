@@ -4,7 +4,7 @@
   $('.new_conversation').replaceWith("<%= j render 'chat/conversations/new' %>");
   $('.current_chat').html("<%= j render 'chat/conversations/show' %>");
   $('.current_chat').css('display', 'flex');
-  $('.chat__transcript').scrollTop($('.chat__transcript').prop('scrollHeight'));
+  $('.current_chat').scrollTop($('.current_chat').prop('scrollHeight'));
   App.chat_message.followCurrentChat();
 <% elsif @conversation.errors.messages[:sessions].present? %>
   error_msg =

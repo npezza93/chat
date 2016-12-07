@@ -9,7 +9,7 @@
   right: 0
   top: 0
   opacity: 0
-  background: #fff
+  background: transparent
   visibility: hidden
   transform: scale(0)
   transform-origin: bottom right
@@ -24,3 +24,18 @@
     transform: scale(1)
   .chat__flex
     flex: 1
+  #chat__blur_filter
+    height: 100%
+    width: 100%
+    position: absolute
+    backdrop-filter: blur(4px)
+    -webkit-backdrop-filter: blur(4px)
+    z-index: 10
+    height: 200vh
+  #chat__background_filter
+    height: 100%
+    width: 100%
+    position: absolute
+    background-color: rgb(40,44,52)
+    opacity: 0.75
+    z-index: 9

@@ -8,19 +8,18 @@
 #chat .chat__list
   position: absolute
   width: 100%
-  height: calc(100% - 100px)
+  height: calc(100% - 50px)
   left: 0px
   opacity: 1
   transition: 0.5s
   overflow: auto
+  z-index: 11
   &::-webkit-scrollbar
     display: none
   a:not(.chat__start-new)
     padding: 10px 25px
     text-align: center
     transition: all 0.3s ease
-    text-decoration: none
-    color: #212121
     display: flex
   .chat__has_new_message
     animation: pulse 1s ease-out infinite
@@ -34,6 +33,7 @@
       flex: 1
       margin-left: 15px
       margin-top: 15px
+      color: #fff
       .flex
         flex: 1
       .name
@@ -43,14 +43,25 @@
         font-weight: 400
         font-size: 11px
         padding-top: 3px
-        color: #bdbdbd
         letter-spacing: 0.5px
     .chat__glance-last-message
       margin-left: 15px
       text-align: left
       margin-top: 7px
       font-size: 13px
-      color: #757575
+      color: #fff
+      img
+        font-size: inherit
+        height: 2ex
+        width: 2.1ex
+        min-height: 20px
+        min-width: 20px
+        display: inline-block
+        margin: -.2ex .15em .2ex
+        line-height: normal
+        vertical-align: middle
+        max-width: 100%
+        top: 0
 #chat .chat__none-available
   height: 100%
   display: flex

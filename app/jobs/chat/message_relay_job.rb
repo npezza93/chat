@@ -10,20 +10,14 @@ module Chat
     def render_message(message)
       {
         user: message.user_id,
-        avatar: avatar(message.user)
+        avatar: renderer.chat_avatar(message.user).to_s
       }.merge(content(message))
-    end
-
-    def avatar(user)
-      renderer.chat_avatar(user).to_s
     end
 
     def content(message)
       if message.image?
         {
-          message: renderer.image_tag(
-            message.image.url, class: "chat__message-image"
-          ),
+          message: renderer.image_tag(message.image.url),
           image: true
         }
       else

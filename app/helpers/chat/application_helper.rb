@@ -46,17 +46,21 @@ module Chat
     end
 
     def chat_avatars(conversation)
-      (conversation.users - [current_user]).first(5).collect do |u|
-        image_tag u.image.url
-      end.join("").html_safe
+      (conversation.users - [current_user]).first(2).map do |u|
+        chat_avatar(u)
+      end
     end
 
     def chat_avatar_count(conversation)
-      if (count = conversation.users.to_a.size - 1) <= 5
+      if (count = conversation_user_count(conversation)) <= 2
         "count_#{count}"
       else
         "count_default"
       end
+    end
+
+    def conversation_user_count(conversation)
+      conversation.users.to_a.size - 1
     end
 
     def message_classes(message)

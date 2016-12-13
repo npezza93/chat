@@ -14,7 +14,6 @@
   transform: scale(0)
   transform-origin: bottom right
   transition: transform .3s ease-in-out, opacity .1s linear .15s
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2)
   overflow: hidden
   @media (max-width: 450px)
     width: 100%
@@ -24,18 +23,19 @@
     transform: scale(1)
   .chat__flex
     flex: 1
-  #chat__blur_filter
+  #chat__background
     height: 100%
     width: 100%
     position: absolute
-    backdrop-filter: blur(4px)
-    -webkit-backdrop-filter: blur(4px)
-    z-index: 10
-    height: 200vh
-  #chat__background_filter
-    height: 100%
-    width: 100%
-    position: absolute
-    background-color: rgb(40,44,52)
-    opacity: 0.75
-    z-index: 9
+    background-color: rgba(40,44,52, 0.75)
+    &::before
+      content: ''
+      margin: -35px
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      backdrop-filter: blur(5px)
+      -webkit-backdrop-filter: blur(5px)
+      z-index: -1

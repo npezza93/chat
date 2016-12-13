@@ -3,14 +3,14 @@
 #chat .new_conversation
   height: calc(100% - 50px)
   margin: 0px 20px
-  overflow: auto
+  overflow-y: scroll
   position: absolute
   right: 375px
   transition: 0.5s
   width: 345px
-  z-index: 11
+  z-index: 13
   &::-webkit-scrollbar
-    display: none
+    visibility: hidden
   label
     position: relative
     margin: 1rem

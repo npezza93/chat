@@ -33,7 +33,12 @@ App.chat_message =
       @div("message-container #{if user == @current_user() then 'right' else ''}")
 
     render_avatar: (data) ->
-      last_message_classes = @collection().children().last()[0].classList
+      last_message_classes = @collection().children().last()[0]
+      last_message_classes =
+        if last_message_classes == undefined
+          []
+        else
+          last_message_classes.classList
 
       if data.user == @current_user() &&
           $.inArray("right", last_message_classes) >= 0

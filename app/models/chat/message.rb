@@ -8,8 +8,8 @@ class Chat::Message < ApplicationRecord
   belongs_to :conversation
 
   delegate :name, to: :user
-  before_save :execute_dot_command
   before_save :remove_extra_new_line
+  before_save :execute_dot_command
 
   after_create_commit do
     Chat::MessageRelayJob.perform_now(id)

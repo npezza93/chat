@@ -20,7 +20,7 @@ module Chat
       private
 
       def shruggie
-        "¯\\_(ツ)_/¯"
+        '¯\_(ツ)_/¯'
       end
     end
   end

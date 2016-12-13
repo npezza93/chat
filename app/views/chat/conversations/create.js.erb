@@ -1,18 +1,26 @@
 <% if @conversation.valid? %>
   $('#chat .chat__list').html("<%= j render 'chat/conversations/index' %>");
-  $('#chat .chat__list').css('display', 'none');
   $('.new_conversation').replaceWith("<%= j render 'chat/conversations/new' %>");
   $('.current_chat').html("<%= j render 'chat/conversations/show' %>");
-  $('.current_chat').css('display', 'flex');
-  $('.current_chat').scrollTop($('.current_chat').prop('scrollHeight'));
+  $('.new_message textarea').emojioneArea();
   App.chat_message.followCurrentChat();
+  $("#new_message").fileupload();
+  if($("#chat__show-<%= @conversation.id %>").hasClass('chat__has_new_message')) {
+    App.chat_notification.decrement();
+    $("#chat__show-<%= @conversation.id %>").removeClass('chat__has_new_message')
+  }
+  $('.current_chat').toggleClass("slide_left");
+  $('.chat__list').toggleClass("slide_left");
+  $('.chat__start-new').toggleClass("disappear");
+  $('.current_chat').scrollTop($('.current_chat').prop('scrollHeight'));
 <% elsif @conversation.errors.messages[:sessions].present? %>
   error_msg =
     `<div class='chat__errors'>
       <%= j @conversation.errors.values.flatten.join(', ') %>
      </div>`;
   if($('.chat__errors').length == 0) {
-    $('.chat__user-check-boxes').prepend(error_msg);
+    $('.new_conversation').scrollTop(0);
+    $('.new_conversation').prepend(error_msg);
   }
 <% else %>
     <% id = Chat.joins(:chat_users).find_by(chat_users: { user_id: @conversation.user_ids }).id %>

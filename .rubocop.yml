@@ -257,6 +257,11 @@ Metrics/PerceivedComplexity:
                  human reader.
   Enabled: true
 
+Metrics/BlockLength:
+  Description: 'Amount lines allowed in a block'
+  Enabled: true
+  Max: 30
+
 ##################### Performance #############################
 
 Performance/Count:

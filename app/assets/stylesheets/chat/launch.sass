@@ -17,6 +17,9 @@
   outline: none
   cursor: pointer
   text-decoration: none
+  transition: 0.5s
+  transform: scale(1)
+  background: #fff
   i
     font-size: 30px
   &:active
@@ -44,11 +47,8 @@
   text-decoration: none
   transition: 0.5s
   transform: scale(1)
-  z-index: 11
+  z-index: 15
   background: #fff
-
-  &.disappear
-    transform: scale(0)
   i
     position: absolute
     left: 12px
@@ -56,3 +56,6 @@
     font-size: 25px
   &:active
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2)
+
+.chat__disappear
+  transform: scale(0)

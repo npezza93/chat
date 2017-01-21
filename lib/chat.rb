@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "chat/engine"
 require "chat/version"
 require "chat/user"

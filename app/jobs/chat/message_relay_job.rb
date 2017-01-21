@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Chat
   class MessageRelayJob < ApplicationJob
     def perform(message_id)

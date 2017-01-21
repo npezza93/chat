@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Chat::Session < ApplicationRecord
   belongs_to :conversation
   belongs_to :user, class_name: "::User"

@@ -81,10 +81,6 @@ Lint/EnsureReturn:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-return-ensure'
   Enabled: true
 
-Lint/Eval:
-  Description: 'The use of eval represents a serious security risk.'
-  Enabled: true
-
 Lint/FormatParameterMismatch:
   Description: 'The number of parameters to format/sprint must match the fields.'
   Enabled: true
@@ -258,9 +254,11 @@ Metrics/PerceivedComplexity:
   Enabled: true
 
 Metrics/BlockLength:
-  Description: 'Amount lines allowed in a block'
-  Enabled: true
-  Max: 30
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '*.gemspec'
 
 ##################### Performance #############################
 
@@ -716,7 +714,7 @@ Style/LineEndConcatenation:
                  line end.
   Enabled: true
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Description: 'Do not use parentheses for method calls with no arguments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-args-no-parens'
   Enabled: true
@@ -835,7 +833,7 @@ Style/ParallelAssignment:
                   matches on both sides of the assignment.
                   This also provides performance benefits
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#parallel-assignment'
-  Enabled: true
+  Enabled: false
 
 Style/ParenthesesAroundCondition:
   Description: >-
@@ -1152,33 +1150,27 @@ Style/WhileUntilModifier:
   Enabled: true
 
 Style/MutableConstant:
-  Enabled: false
+  Enabled: true
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/EmptyMethod:
-  EnforcedStyle: expanded
+  Enabled: true
 
 Style/WordArray:
   Description: 'Use %w or %W for arrays of words.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-w'
   Enabled: true
+
+Style/EmptyMethod:
+  Enabled: false
+
+Security/Eval:
+  Description: 'The use of eval represents a serious security risk.'
+  Enabled: true
+
 AllCops:
   Exclude:
     - 'vendor/**/*'
-    - 'config/**/*'
-    - 'db/**/*'
-    - 'bin/*'
-    - 'Gemfile'
+    - 'test/dummy/db/schema.rb'
     - 'Gemfile.lock'
     - 'Rakefile'
-    - 'test/dummy/vendor/**/*'
-    - 'test/dummy/config/**/*'
-    - 'test/dummy/db/**/*'
-    - 'test/dummy/bin/*'
-    - 'test/dummy/Gemfile'
-    - 'test/dummy/Gemfile.lock'
-    - 'test/dummy/Rakefile'
-    - 'lib/generators/chat/install/templates/create_chat.rb'
   TargetRubyVersion: 2.3

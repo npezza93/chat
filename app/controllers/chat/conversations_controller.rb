@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Chat
   class ConversationsController < ApplicationController
     before_action Chat.logged_in_check

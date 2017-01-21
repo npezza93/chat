@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Chat::Message < ApplicationRecord
   has_attached_file :image
   validates_attachment :image, content_type: {

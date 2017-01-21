@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Chat::NotificationChannel < ApplicationCable::Channel
   def follow(data)
     stop_all_streams

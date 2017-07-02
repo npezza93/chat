@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Chat
   class StatusRelayJob < ApplicationJob
     def perform(user)

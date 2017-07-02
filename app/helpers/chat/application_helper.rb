@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Chat
   module ApplicationHelper
     def render_chat

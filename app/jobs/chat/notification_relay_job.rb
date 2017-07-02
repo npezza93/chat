@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Chat
   class NotificationRelayJob < ApplicationJob
     def perform(message)

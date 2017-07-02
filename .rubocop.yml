@@ -4,6 +4,7 @@ AllCops:
   - vendor/**/*
   - Gemfile.lock
   - db/schema.rb
+  - test/dummy/db/schema.rb
   TargetRubyVersion: 2.4
 Lint/AmbiguousOperator:
   Description: Checks for ambiguous operators in the first argument of a method invocation

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Chat::StatusChannel < ApplicationCable::Channel
   def online
     stop_all_streams

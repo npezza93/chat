@@ -11,7 +11,7 @@
   }
   $('.current_chat').toggleClass("slide_left");
   $('.chat__list').toggleClass("slide_left");
-  $('.chat__start-new').toggleClass("disappear");
+  $('.chat__start-new').toggleClass("chat__disappear");
   $('.current_chat').scrollTop($('.current_chat').prop('scrollHeight'));
 <% elsif @conversation.errors.messages[:sessions].present? %>
   error_msg =
@@ -23,7 +23,7 @@
     $('.new_conversation').prepend(error_msg);
   }
 <% else %>
-    <% id = Chat.joins(:chat_users).find_by(chat_users: { user_id: @conversation.user_ids }).id %>
+    <% id = Chat::Conversation.joins(:users).find_by(users: { id: @conversation.user_ids }).id %>
     $('.new_conversation').replaceWith("<%= j render 'chats/new' %>");
     $("a[href='/chats/<%= id %>']").click();
 <% end %>

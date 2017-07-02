@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Chat
   class ConversationsController < ApplicationController
     before_action Chat.logged_in_check
@@ -21,8 +22,9 @@ module Chat
 
     def conversation_params
       chat_params = params.require(:conversation).permit(user_ids: [])
-      if chat_params[:user_ids].reject(&:blank?).present?
+      if chat_params[:user_ids].reject!(&:blank?).present?
         chat_params[:user_ids] << current_user.id
+        chat_params[:user_ids].map!(&:to_i)
       end
 
       chat_params

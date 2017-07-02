@@ -10,7 +10,8 @@ module Chat
       end
 
       def perform
-        message.user.leave_conversation(message.conversation)
+        message.session.destroy
+        message.text = "#{message.user.name} has left the conversation"
       end
     end
   end

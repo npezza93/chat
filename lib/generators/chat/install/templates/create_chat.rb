@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-class CreateChat < ActiveRecord::Migration[5.0]
+
+class CreateChat < ActiveRecord::Migration[5.1]
   def self.up
     create_table :chat_conversations do |t|
       t.timestamps
@@ -31,6 +32,7 @@ class CreateChat < ActiveRecord::Migration[5.0]
       t.belongs_to :user
       t.text :text
       t.belongs_to :conversation
+      t.belongs_to :session
       t.attachment :image
 
       t.timestamps

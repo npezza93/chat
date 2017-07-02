@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Chat::Message < ApplicationRecord
   has_attached_file :image
   validates_attachment :image, content_type: {
@@ -7,6 +8,7 @@ class Chat::Message < ApplicationRecord
 
   belongs_to :user, class_name: "::User"
   belongs_to :conversation
+  belongs_to :session
 
   delegate :name, to: :user
   before_save :remove_extra_new_line

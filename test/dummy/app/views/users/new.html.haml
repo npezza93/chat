@@ -1,8 +1,9 @@
-= link_to sign_in_path, class: 'link-back' do
+= link_to sign_in_path, class: "link-back" do
   = material_icon.arrow_back
-#sign-up
-  %h1= t('.title')
+
+.container
+  %h1.mdc-theme--text-primary-on-primary= t('.title')
   = form_for @user do |f|
     = render 'clearance/users/form', f: f
-    %br
-    = f.submit 'Sign Up'
+
+    %button.mdc-button.mdc-button--primary{ type: :submit } Sign Up

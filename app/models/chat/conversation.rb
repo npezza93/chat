@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Chat::Conversation < ApplicationRecord
   has_many :messages
   has_many :sessions, dependent: :destroy
@@ -10,4 +11,16 @@ class Chat::Conversation < ApplicationRecord
   validates :sessions, presence: {
     message: "At least one user must be selected"
   }
+  validate do
+    conversations = Chat::Conversation.includes(:users).where.not(id: id)
+
+    conversation_already_exists =
+      conversations.map(&:user_ids).to_a.reject do |ids|
+        (ids - user_ids).present?
+      end.count.positive?
+
+    next unless conversation_already_exists
+
+    errors.add(:conversation, "already taking place")
+  end
 end

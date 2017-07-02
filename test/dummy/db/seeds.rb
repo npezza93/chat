@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 admin = User.create(
   first_name: "Nick",
   last_name: "Pezza",
   password: "password",
   email: "admin@admin.com",
-  image: File.open("app/assets/images/bb-8.gif")
+  image: open(Faker::Avatar.image)
 )
 
 def create_user

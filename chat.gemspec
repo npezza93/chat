@@ -5,11 +5,10 @@ require "chat/version"
 
 Gem::Specification.new do |s|
   s.add_dependency "material_icons"
-  s.add_dependency "paperclip", "~> 5.1.0"
-  s.add_dependency "composite_primary_keys"
+  s.add_dependency "paperclip"
   s.add_dependency "jquery-fileupload-rails"
-  s.add_dependency "rails", "~> 5.0.0", ">= 5.0.0.1"
-  s.add_dependency "coffee-rails", "~> 4.2"
+  s.add_dependency "rails", "~> 5.1"
+  s.add_dependency "coffee-rails"
   s.add_dependency "jquery-rails"
   s.add_dependency "giphy"
   s.add_dependency "sidekiq"
@@ -32,5 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "puma"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rubocop"
-  s.add_development_dependency "turbolinks", "~> 5"
+  s.add_development_dependency "turbolinks"
 end

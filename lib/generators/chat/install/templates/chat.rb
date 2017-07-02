@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Chat.setup do |config|
   # Clearance => :signed_in?
   # Devise    => :user_signed_in?

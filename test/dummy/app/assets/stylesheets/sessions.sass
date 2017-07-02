@@ -1,19 +1,49 @@
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
 
+\:root
+  --mdc-theme-primary: #FAFAFA
+
 h1
-  font-weight: 300
-  font-family: 'Lato' !important
-  color: #fff
-.link-back i
+  font-weight: 400
+.link-back
+  position: absolute
+  top: 0
+  left: 0
   margin: 10px
-  color: #212121
+  color: var(--mdc-theme-text-primary-on-primary,#fff)
 .sign_up_links
   margin-top: 30px
 #signed_in_user
+  color: var(--mdc-theme-text-primary-on-primary,#fff)
   padding: 10px
   display: flex
-  flex-direction: column
+  flex-direction: row
   align-items: flex-end
   position: absolute
   top: 0
   right: 0
+  span
+    margin: 0 10px
+.container
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100%
+
+  a
+    margin-top: 32px
+
+  form
+    display: flex
+    flex-direction: column
+
+    button
+      display: flex
+      flex-direction: row
+      justify-content: center
+    label
+      color: var(--mdc-theme-text-hint-on-dark, rgba(0, 0, 0, 0.5))
+    input[type="file"]
+      margin: 10px 0
+      color: var(--mdc-theme-text-primary-on-primary,#fff)

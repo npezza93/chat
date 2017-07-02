@@ -1,18 +1,18 @@
+# frozen_string_literal: true
 module Chat
   module ApplicationHelper
-    def render_chat(background = "#7EE48E", color = "light")
+    def render_chat
       return unless send Chat.signed_in
 
-      render "chat/chat", background: background, color: color
+      render "chat/chat"
     end
 
-    def launch_chat_fab(background = "#7EE48E", color = "light")
+    def launch_chat_fab
       attrs = {
-        class: "chat__launch", style: "background: #{background}",
-        data: { "current-user" => current_user.id }
+        class: "chat__launch", data: { "current-user" => current_user.id }
       }
       button_tag(attrs) do
-        material_icon.forum.css_class("md-#{color}").to_s.html_safe
+        material_icon.forum.css_class("md-dark").to_s.html_safe
       end
     end
 

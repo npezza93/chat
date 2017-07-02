@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "chat/engine"
 require "chat/version"
 require "chat/user"
@@ -7,7 +8,6 @@ require "paperclip"
 require "material_icons"
 require "coffee-rails"
 require "jquery-rails"
-require "composite_primary_keys"
 require "jquery-fileupload-rails"
 require "giphy"
 require "sidekiq"

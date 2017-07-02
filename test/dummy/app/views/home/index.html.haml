@@ -1,8 +1,7 @@
-#homeContainer
-  - if signed_in?
-    %h1 Chat
-  - else
-    = link_to sign_in_path do
-      %h1 Chat
+#homeContainer.mdc-theme--text-primary-on-primary
+  %h1 Chat
+  - unless signed_in?
+    = link_to "Sign In", sign_in_path, class: "mdc-button mdc-button--primary"
 
-= render_chat("#7EE48E", "light")
+
+= render_chat

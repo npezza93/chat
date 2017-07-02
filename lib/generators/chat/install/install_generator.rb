@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rails/generators/base"
 require "rails/generators/active_record"
 require "rails/generators/migration"

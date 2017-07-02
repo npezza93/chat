@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Chat
   class DotCommand
     attr_reader :text, :message

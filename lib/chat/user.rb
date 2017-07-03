@@ -29,20 +29,18 @@ module Chat
       update(chat_status: "offline")
     end
 
-    class_methods do
-      def first_name
-        "first_name"
-      end
+    def chat_avatar
+      send(Chat.user_avatar)
+    end
 
-      def last_name
-        "last_name"
-      end
+    def chat_avatar?
+      send("#{Chat.user_avatar}?")
     end
 
     private
 
     def broadcast_status
-      Chat::StatusRelayJob.perform_now(self)
+      Chat::StatusRelayJob.send(Chat.perform_method, self)
     end
   end
 end

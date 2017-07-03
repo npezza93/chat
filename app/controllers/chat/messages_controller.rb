@@ -2,7 +2,6 @@
 
 module Chat
   class MessagesController < ApplicationController
-    before_action Chat.logged_in_check
     before_action :set_conversation
     before_action :set_session
 

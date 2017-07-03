@@ -2,7 +2,6 @@
 
 module Chat
   class ConversationsController < ApplicationController
-    before_action Chat.logged_in_check
     before_action :set_conversation, only: :show
 
     def show

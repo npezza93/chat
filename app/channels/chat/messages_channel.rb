@@ -6,8 +6,7 @@ class Chat::MessagesChannel < ApplicationCable::Channel
     stream_from "chats::#{data['chat_id']}::messages"
   end
 
-  def unfollow
+  def unsubscribed
     stop_all_streams
   end
-  alias unsubscribed unfollow
 end

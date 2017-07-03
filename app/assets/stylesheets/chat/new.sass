@@ -2,13 +2,14 @@
 
 #chat .new_conversation
   height: calc(100% - 50px)
-  margin: 0px 20px
   overflow-y: scroll
   position: absolute
-  right: 375px
+  right: 100%
   transition: 0.5s
-  width: 345px
+  width: 100%
   z-index: 13
+  display: flex
+  flex-direction: column
   &::-webkit-scrollbar
     visibility: hidden
   label
@@ -18,7 +19,6 @@
     font-family: "Lato" !important
     letter-spacing: 1.5px !important
     padding-left: 40px
-    width: 100%
     color: #fff
   .chat__status
     &:after
@@ -31,10 +31,7 @@
         color: #AED581
 
   input[type='submit']
-    border-top: none
-    border-left: none
-    border-bottom: none
-    border-right: none
+    border: none
     font-family: "Lato" !important
     letter-spacing: 1.5px !important
     font-size: 17px

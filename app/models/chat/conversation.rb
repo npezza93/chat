@@ -12,14 +12,9 @@ class Chat::Conversation < ApplicationRecord
     message: "At least one user must be selected"
   }
   validate do
-    conversations = Chat::Conversation.includes(:users).where.not(id: id)
-
-    conversation_already_exists =
-      conversations.map(&:user_ids).to_a.reject do |ids|
-        (ids - user_ids).present?
-      end.count.positive?
-
-    next unless conversation_already_exists
+    next unless Chat::Conversation.joins(:users).where.not(id: id).where(
+      users: { id: user_ids }
+    ).group(:id).having("COUNT(DISTINCT users.id) = ?", user_ids.count).exists?
 
     errors.add(:conversation, "already taking place")
   end

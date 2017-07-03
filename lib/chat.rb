@@ -22,6 +22,9 @@ module Chat
   # The field that contains the users avatar
   mattr_accessor :user_avatar
 
+  # Can be perform_now or perform_later. Called on jobs
+  mattr_accessor :perform_method
+
   def self.table_name_prefix
     "chat_"
   end

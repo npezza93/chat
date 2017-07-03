@@ -9,10 +9,10 @@
     .chat__flex
     %h6 Chat
     .chat__flex
-    = material_icon.close.css_class('chat__close')
-  = render 'chat/conversations/new'
+    = material_icon.close.css_class("chat__close")
+  = render "chat/conversations/new"
   .chat__list
-    = render 'chat/conversations/index'
-  = link_to nil, class: 'chat__start-new' do
+    = render "chat/conversations/index"
+  = link_to nil, class: "chat__start-new" do
     = material_icon.add
   .current_chat

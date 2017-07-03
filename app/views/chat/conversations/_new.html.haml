@@ -1,7 +1,7 @@
 = form_for [chat, Chat::Conversation.new], remote: true do |f|
   - if chatable_users.present?
     = chatable_user_check_boxes(f)
-    = f.submit 'Start Chatting'
+    = f.submit "Start Chatting"
   - else
     .chat__none-available
       = material_icon.people

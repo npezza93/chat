@@ -1,11 +1,10 @@
 .message-container{ class: message.user == current_user ? "right" : "left" }
-  - if message.user != previous&.user
-    = chat_avatar(message.user)
-  - else
+  - if message.user == previous&.user
     .transcript_placeholder_avatar
+  - else
+    = chat_avatar(message.user)
   .message{ class: ("image" if message.image?).to_s }
     - if message.image?
       = image_tag message.image.url
     - else
-      .content
-        = raw(message.text)
+      .content= raw(message.text)

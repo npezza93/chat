@@ -33,8 +33,8 @@ module Chat
     end
 
     def chat_avatar(user)
-      if user.send(Chat.user_avatar.to_s + "?")
-        image_tag(user.send(Chat.user_avatar), class: "chat__user-avatar")
+      if user.chat_avatar?
+        image_tag(user.chat_avatar, class: "chat__user-avatar")
       else
         MaterialIcon.new.css_class("chat__user-avatar").person
       end

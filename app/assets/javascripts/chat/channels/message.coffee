@@ -14,7 +14,7 @@ App.chat_message =
       if chatId = @current_chat()
         @perform 'follow', chat_id: chatId
       else
-        @perform 'unfollow'
+        @perform 'unsubscribed'
 
     current_user: ->
       if @collection().length > 0

@@ -10,4 +10,6 @@ Chat.setup do |config|
   config.logged_in_check = :require_login
 
   config.user_avatar = :image
+
+  config.perform_method = :perform_now
 end

@@ -1,4 +1,4 @@
-<% if @conversation.valid? %>
+<% if @conversation.errors.messages[:sessions].blank? %>
   $('#chat .chat__list').html("<%= j render 'chat/conversations/index' %>");
   $('.new_conversation').replaceWith("<%= j render 'chat/conversations/new' %>");
   $('.current_chat').html("<%= j render 'chat/conversations/show' %>");
@@ -10,10 +10,10 @@
     $("#chat__show-<%= @conversation.id %>").removeClass('chat__has_new_message')
   }
   $('.current_chat').toggleClass("slide_left");
-  $('.chat__list').toggleClass("slide_left");
-  $('.chat__start-new').toggleClass("chat__disappear");
+  $('.chat__list').addClass("slide_left");
+  $('.chat__start-new').addClass("chat__disappear");
   $('.current_chat').scrollTop($('.current_chat').prop('scrollHeight'));
-<% elsif @conversation.errors.messages[:sessions].present? %>
+<% else %>
   error_msg =
     `<div class='chat__errors'>
       <%= j @conversation.errors.values.flatten.join(', ') %>
@@ -22,8 +22,4 @@
     $('.new_conversation').scrollTop(0);
     $('.new_conversation').prepend(error_msg);
   }
-<% else %>
-    <% id = Chat::Conversation.joins(:users).find_by(users: { id: @conversation.user_ids }).id %>
-    $('.new_conversation').replaceWith("<%= j render 'chats/new' %>");
-    $("a[href='/chats/<%= id %>']").click();
 <% end %>

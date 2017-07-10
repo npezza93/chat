@@ -9,6 +9,14 @@ module Chat
 
     def create
       @conversation = Chat::Conversation.create(conversation_params)
+
+      if @conversation.persisted? ||
+          @conversation.errors.messages[:sessions].present?
+        render template: :create
+      else
+        @conversation = find_existing_conversation
+        render template: "chat/conversations/show"
+      end
     end
 
     private
@@ -27,6 +35,18 @@ module Chat
       end
 
       chat_params
+    end
+
+    def find_existing_conversation
+      Chat::Conversation.includes(
+        :users, messages: :user
+      ).find(
+        Chat::Conversation.joins(:users).having(
+          "COUNT(DISTINCT users.id) = ?", conversation_params[:user_ids].count
+        ).group(:id).find_by(
+          users: { id: conversation_params[:user_ids] }
+        ).id
+      )
     end
   end
 end

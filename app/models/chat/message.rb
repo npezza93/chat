@@ -15,8 +15,8 @@ class Chat::Message < ApplicationRecord
   before_save :execute_dot_command
 
   after_create_commit do
-    Chat::MessageRelayJob.send(Chat.perform_method, id)
-    Chat::NotificationRelayJob.send(Chat.perform_method, self)
+    Chat::MessageRelayJob.send(Chat.perform_method.to_sym, id)
+    Chat::NotificationRelayJob.send(Chat.perform_method.to_sym, self)
   end
 
   private

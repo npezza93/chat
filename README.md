@@ -37,28 +37,31 @@ Run the installer to setup migrations and helpers and then migrate:
 
 Require chat in your app/assets/javascripts/application.js file:
 
-```
+```js
 //= require chat
 ```
 
 Require chat in your app/assets/stylesheets/application.css file
 
-```
+```css
  *= require chat
 ```
 
-Finally the following line to your application.html.erb file or any view file
+Finally, add the following line to your application.html.erb file or any view file
 you'd like Chat available from:
-```html
-<!--  background is the background color of the launch fab -->
-<!--  color is the icon color on the launch fab. Can be light or dark -->
-<%= render_chat(background, color) %>
+```erb
+<%= render_chat %>
 ```
 
 ### Dot Commands
 
+Dot commands behave differently than regular messages and begin with a dot(.).
+The following commands are available:
+  - .shrug followed by an optional message outputs a srugging emoticon
+  - .gif following by a label fetches a random gif from giphy with the given label
+
 ## Contributing
-Contribution directions go here.
+Bug reports and pull requests are welcome on GitHub at https://github.com/npezza93/chat.
 
 ## License
 The gem is available as open source under the terms of the

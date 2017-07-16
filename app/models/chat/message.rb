@@ -14,6 +14,8 @@ class Chat::Message < ApplicationRecord
   before_save :remove_extra_new_line
   before_save :execute_dot_command
 
+  validates :text, presence: true, unless: :image?
+
   after_create_commit do
     Chat::MessageRelayJob.send(Chat.perform_method.to_sym, id)
     Chat::NotificationRelayJob.send(Chat.perform_method.to_sym, self)

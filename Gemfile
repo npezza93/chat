@@ -15,15 +15,19 @@ gem "uglifier", ">= 1.3.0"
 
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
-gem "pry"
+gem "pry-rails"
 gem "redis", "~> 3.0"
 gem "turbolinks", "~> 5"
 
 gem "chat"
+gem "devise"
+gem "haml"
+gem "clearance"
 
 group :development, :test do
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem "rubocop"
 end
 
 group :development do

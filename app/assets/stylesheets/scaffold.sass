@@ -1,0 +1,70 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+@import "https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
+
+\:root
+  --mdc-theme-primary: #FAFAFA
+
+body, html
+  height: 100%
+  width: 100%
+  margin: 0
+  background-image: linear-gradient( 135deg, #5EFCE8 0%, #736EFE 100%)
+a
+  color: var(--mdc-theme-text-primary-on-primary,#fff)
+  text-decoration: none
+
+#homeContainer
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  a
+    font-weight: 300
+    margin-top: 24px
+
+h1
+  font-weight: 400
+.link-back
+  position: absolute
+  top: 0
+  left: 0
+  margin: 10px
+  color: var(--mdc-theme-text-primary-on-primary,#fff)
+.sign_up_links
+  margin-top: 30px
+#signed_in_user
+  color: var(--mdc-theme-text-primary-on-primary,#fff)
+  padding: 10px
+  display: flex
+  flex-direction: row
+  align-items: flex-end
+  position: absolute
+  top: 0
+  right: 0
+  span
+    margin: 0 10px
+.container
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100%
+
+  a
+    margin-top: 32px
+
+  form
+    display: flex
+    flex-direction: column
+
+    button
+      display: flex
+      flex-direction: row
+      justify-content: center
+    label
+      color: var(--mdc-theme-text-hint-on-dark, rgba(0, 0, 0, 0.5))
+    input[type="file"]
+      margin: 10px 0
+      color: var(--mdc-theme-text-primary-on-primary,#fff)

@@ -2,6 +2,8 @@
 Simple Rails chat plugin that allows users to talk to one or more people at a
 time that leverages ActionCable.
 
+A demo of functionality can be found: [https://chatgem.herokuapp.com/](https://chatgem.herokuapp.com/)
+
 ## Getting Started
 
 #### Prerequisites

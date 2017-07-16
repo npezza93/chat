@@ -12,7 +12,7 @@ module Chat
 
       if @conversation.persisted? ||
           @conversation.errors.messages[:sessions].present?
-        render template: :create
+        render template: "chat/conversations/create"
       else
         @conversation = find_existing_conversation
         render template: "chat/conversations/show"

@@ -36,7 +36,7 @@ module Chat
       if user.chat_avatar?
         image_tag(user.chat_avatar, class: "chat__user-avatar")
       else
-        MaterialIcon.new.css_class("chat__user-avatar").person
+        MaterialIcon.new.css_class("chat__user-avatar").person.to_s
       end
     end
 

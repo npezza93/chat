@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount Chat::Engine => "/chat", as: "chat"
+  root to: "home#index", id: "home"
+
+  resource :users, only: %i(edit update)
+
+  mount ActionCable.server => "/cable"
 end

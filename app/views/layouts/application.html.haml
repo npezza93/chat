@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Chat
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application',
+      media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application',
+      'data-turbolinks-track': 'reload'
+    = action_cable_meta_tag
+
+    %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+  %body.mdc-typography
+    = snackbar_notice(notice || alert)
+    - if signed_in?
+      #signed_in_user
+        = link_to 'Settings', edit_users_path
+        %span= "|"
+        = link_to 'Sign out', sign_out_path, method: :delete
+    = yield

@@ -1,0 +1,23 @@
+= link_to root_path, class: "link-back" do
+  = material_icon.arrow_back
+
+.container
+  %h1.mdc-theme--text-primary-on-primary= t('.title')
+  = form_for :session, url: session_path do |f|
+    .mdc-textfield
+      = f.email_field :email, autofocus: true,
+          class: "mdc-textfield__input mdc-theme--text-primary-on-primary",
+          required: true
+      = f.label :email, "Email", class: "mdc-textfield__label"
+
+    .mdc-textfield
+      = f.password_field :password,
+          class: "mdc-textfield__input mdc-theme--text-primary-on-primary",
+          required: true
+      = f.label :password, "Password", class: "mdc-textfield__label"
+
+    %button.mdc-button.mdc-button--primary{ type: :submit } Sign In
+
+  - if Clearance.configuration.allow_sign_up?
+    = link_to t('.sign_up'), sign_up_path,
+      class: "mdc-button mdc-button--primary"

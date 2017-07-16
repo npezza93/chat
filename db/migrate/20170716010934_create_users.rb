@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :last_name
       t.attachment :image
       t.string :chat_status, default: "offline"
-      add_tokens_password(t)
+      add_password_tokens(t)
     end
   end
 

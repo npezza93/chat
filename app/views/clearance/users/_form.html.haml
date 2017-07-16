@@ -1,0 +1,11 @@
+.mdc-textfield
+  = f.email_field :email, autofocus: true,
+      class: "mdc-textfield__input mdc-theme--text-primary-on-primary",
+      required: true
+  = f.label :email, "Email", class: "mdc-textfield__label"
+
+.mdc-textfield
+  = f.password_field :password,
+      class: "mdc-textfield__input mdc-theme--text-primary-on-primary",
+      required: true
+  = f.label :password, "Password", class: "mdc-textfield__label"

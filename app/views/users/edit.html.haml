@@ -1,0 +1,23 @@
+= link_to root_path, class: "link-back" do
+  = material_icon.arrow_back
+
+.container
+  %h1.mdc-theme--text-primary-on-primary Settings
+  = form_for @user, url: users_path, method: :put do |f|
+    = render 'clearance/users/form', f: f
+
+    .mdc-textfield
+      = f.text_field :first_name,
+          class: "mdc-textfield__input mdc-theme--text-primary-on-primary",
+          required: true
+      = f.label :first_name, "First Name", class: "mdc-textfield__label"
+
+    .mdc-textfield
+      = f.text_field :last_name,
+          class: "mdc-textfield__input mdc-theme--text-primary-on-primary",
+          required: true
+      = f.label :last_name, "Last Name", class: "mdc-textfield__label"
+
+    = f.file_field :image, placeholder: 'Image'
+
+    %button.mdc-button.mdc-button--primary{ type: :submit } Save
